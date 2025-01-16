@@ -36,6 +36,7 @@ import java.awt.*;
         TileManager tileM = new TileManager(this);
         KeyHandler keyH = new KeyHandler();
         Thread gameThread;
+       public CollisionChecker cChecker = new CollisionChecker(this);
        public Player player = new Player(this,keyH);
 
 
