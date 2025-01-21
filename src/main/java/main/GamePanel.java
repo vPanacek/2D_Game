@@ -1,6 +1,7 @@
 package main;
 
 import entity.Player;
+import object.SuperObject;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -38,6 +39,7 @@ import java.awt.*;
         Thread gameThread;
        public CollisionChecker cChecker = new CollisionChecker(this);
        public Player player = new Player(this,keyH);
+       public SuperObject obj[] = new SuperObject[10];
 
 
 
