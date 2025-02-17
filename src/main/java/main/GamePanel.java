@@ -38,8 +38,10 @@ import java.awt.*;
         KeyHandler keyH = new KeyHandler();
         Thread gameThread;
        public CollisionChecker cChecker = new CollisionChecker(this);
+       public AssetSetter aSetter = new AssetSetter(this);
        public Player player = new Player(this,keyH);
-       public SuperObject obj[] = new SuperObject[10];
+       public SuperObject obj[] = new SuperObject[10]; // 10 mean how many objects can be displayed at the same time.
+
 
 
 
@@ -49,6 +51,12 @@ import java.awt.*;
             this.setDoubleBuffered(true);
             this.addKeyListener(keyH);
             this.setFocusable(true);
+        }
+
+        public void setupGame() {
+
+            aSetter.setObject();
+
         }
 
         public void startGameThread() {
@@ -105,8 +113,21 @@ import java.awt.*;
 
             Graphics2D g2 = (Graphics2D) g;
 
+            //TILE
             tileM.draw(g2);
 
+            //OBJECT
+            for(int i = 0; i < obj.length; i ++) {
+                if (obj[i] !=null) {
+                    obj[i].draw(g2, this);
+                }
+
+
+
+            }
+
+
+            //PLAYER
             player.draw(g2);
             g2.dispose();
 
